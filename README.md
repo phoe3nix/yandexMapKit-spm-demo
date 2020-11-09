@@ -28,9 +28,11 @@
 1. Заходим в `Edit Scheme` схемы основного приложения.
 2. Раскрываем поле `Build` и нажимаем `Post Actions`.
 3. Добавляем скрипт и выбираем build settings из приложения.
-4. Затем добавляем сам код скрипта. 
+4. Затем добавляем сам код скрипта.
+```bash
 rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/YandexMapKit.framework"
 rm -rf "${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/YandexRuntime.framework"
+```
  
 После этого приложение должно будет запуститься успешно.
 
