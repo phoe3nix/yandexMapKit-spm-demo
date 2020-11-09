@@ -6,23 +6,35 @@ import PackageDescription
 let package = Package(
     name: "YandexMapsWrapper",
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "YandexMapsWrapper",
-            targets: ["YandexMapsWrapper"]),
+            targets: ["YandexMaps"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(
-            name: "YandexMapsWrapper",
-            dependencies: []),
-        .testTarget(
-            name: "YandexMapsWrapperTests",
-            dependencies: ["YandexMapsWrapper"]),
+		.binaryTarget(
+			name: "YandexMapKit",
+			url: "ссылка до файла",
+			checksum: "394fb7b25d54e006e153d82be37b746f7095b27fe8d5707fc3dc817e4eb05440"
+		),
+		.binaryTarget(
+			name: "YandexRuntime",
+			url: "ссылка до файла",
+			checksum: "8e39a318448d9b39d17df37893162f42ae512c2939d44c85d46ff24b447eb608"
+		),
+		.target(
+			name: "YandexMaps",
+			dependencies: [
+				"YandexMapsLibraries"
+			]
+		),
+		.target(
+			name: "YandexMapsLibraries",
+			dependencies: [
+				"YandexMapKit",
+				"YandexRuntime",
+			]
+		),
     ]
 )
